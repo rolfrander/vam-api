@@ -34,13 +34,17 @@ function registrer(req, res) {
 }
 
 function list(req, res) {
-  res.json(medlemmer.map((o, i) => {
-    return({
-      id: i,
-      links: {
-        self: req.url+"/"+i
-      },
-      object: o,
-    });
-  }));
+  if(req.swagger.params.id) {
+    res.json(medlemmer[req.swagger.params.id.value]);
+  } else {
+    res.json(medlemmer.map((o, i) => {
+      return({
+        id: i,
+        links: {
+          self: req.url+"/"+i
+        },
+        object: o,
+      });
+    }));
+  }
 }
