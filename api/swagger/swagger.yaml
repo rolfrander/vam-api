@@ -148,7 +148,7 @@ definitions:
     properties:
       navn:
         type: string
-        pattern: '^[a-zA-Z0-9_-]+$'
+        pattern: '^[^<>"=]+$'
       hovedinstrument:
         type: string
         enum: [fløyte, klarinett, fagott, saxofon, horn, trompet, trombone, euphonium, baryton, tuba, slagverk, piano]

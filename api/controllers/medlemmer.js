@@ -10,15 +10,16 @@ module.exports = {
 var medlemmer = [];
 
 function ny(req, res) {
-  console.log(req);
   const p = req.swagger.params;
-  medlemmer.push(p.data.value);
+  console.log(p.data.value);
   const id = medlemmer.length;
+  medlemmer.push(p.data.value);
   res.json({
     id: id,
     links: {
       self: req.url+'/'+id,
     },
+    object: p.data.value,
   })
 }
 
