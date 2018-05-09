@@ -42,6 +42,22 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /instrumenter:
+    x-swagger-router-controller: medlemmer
+    get:
+      description: Hent instrumenter
+      operationId: hentInstrumenter
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              type: string
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /medlemmer:
     x-swagger-router-controller: medlemmer
     get:
@@ -151,9 +167,7 @@ definitions:
         pattern: '^[^<>"=]+$'
       hovedinstrument:
         type: string
-        enum: [fløyte, klarinett, fagott, saxofon, horn, trompet, trombone, euphonium, baryton, tuba, slagverk, piano]
       biinstrumenter:
         type: array
         items:
           type: string
-          enum: [fløyte, klarinett, fagott, saxofon, horn, trompet, trombone, euphonium, baryton, tuba, slagverk, piano]
